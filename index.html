@@ -9,9 +9,9 @@
 </head>
 <body>
 <div id="app">
-    <h3>{{ message.split('').reverse().join('') }}</h3>
-    <a :href="link">Go To VUE Official Site </a>
-    <div v-html="htmlContent" v-bind="objectOfAttrs"></div>
+    <h2>My Name is {{ name }}</h2>
+    <h3>{{ count }}</h3>
+    <a href="" @click.prevent="onIncrementCounter($event, 'Selim')">increment Count</a>
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="main.js"></script>
