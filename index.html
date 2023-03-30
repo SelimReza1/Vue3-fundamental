@@ -9,11 +9,24 @@
 </head>
 <body>
 <div id="app">
-    <h4 v-if="isLoggedIN">User Is Logged IN</h4>
 
-    <h4 v-show="!isLoggedIN">User Is Logged OUT</h4>
+    <div v-for="(value, key) in person">{{ key }} - {{ value }}</div>
+<br>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+        </thead>
 
-    <button @click="checkLoggedIn()">{{ isLoggedIN ? 'Logout' : 'Login' }}</button>
+        <tbody>
+        <tr v-for="post in posts">
+            <td> {{ post.title }}</td>
+            <td> {{ post.description }}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="main.js"></script>
