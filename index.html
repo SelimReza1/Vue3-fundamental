@@ -9,9 +9,11 @@
 </head>
 <body>
 <div id="app">
-    <h2>My Name is {{ name }}</h2>
-    <h3>{{ count }}</h3>
-    <a href="" @click.prevent="onIncrementCounter($event, 'Selim')">increment Count</a>
+    <h4 v-if="isLoggedIN">User Is Logged IN</h4>
+
+    <h4 v-show="!isLoggedIN">User Is Logged OUT</h4>
+
+    <button @click="checkLoggedIn()">{{ isLoggedIN ? 'Logout' : 'Login' }}</button>
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="main.js"></script>
