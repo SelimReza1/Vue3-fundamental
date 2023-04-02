@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
           isLoggedIN: true,
+            name:'',
+            country:'',
             person: {
               name: 'Selim',
                 Age: 26
@@ -28,14 +30,38 @@ createApp({
                     title: 'Titel Five',
                     description: 'Post Description Five'
                 }
-            ]
+            ],
+            isActive: true,
+            background: '',
+            boxStyle: {
+              background: 'green',
+                border: '2px dashed purple'
+            }
         }
     },
+    computed: {
+        fullName() {
+            console.log('fullname');
+            return 'Full Name is'+ this.name+ ev;
+        }
+    },
+
     methods: {
         checkLoggedIn() {
             console.log('true');
             this.isLoggedIN = !this.isLoggedIN;
-        }
+        },
 
-    }
+        dummy() {
+            console.log('dummy');
+        },
+
+        checkActive() {
+            this.isActive = !this.isActive;
+        },
+        onBoxClick() {
+            this.background = 'black';
+        }
+    },
+
 }).mount('#app')
