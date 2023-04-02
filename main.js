@@ -1,67 +1,68 @@
-const { createApp } = Vue;
+const {createApp} = Vue;
 
 createApp({
     data() {
         return {
-          isLoggedIN: true,
-            name:'',
-            country:'',
-            person: {
-              name: 'Selim',
-                Age: 26
-            },
-            posts: [
-                {
-                    title: 'Titel One',
-                    description: 'Post Description One'
-                },{
-                    title: 'Titel Two',
-                    description: 'Post Description Two'
-                },
-                {
-                    title: 'Titel Three',
-                    description: 'Post Description Three'
-                },
-                {
-                    title: 'Titel Four',
-                    description: 'Post Description Four'
-                },
-                {
-                    title: 'Titel Five',
-                    description: 'Post Description Five'
-                }
-            ],
-            isActive: true,
-            background: '',
-            boxStyle: {
-              background: 'green',
-                border: '2px dashed purple'
-            }
+            colors: [],
+            color: 'red'
         }
     },
-    computed: {
-        fullName() {
-            console.log('fullname');
-            return 'Full Name is'+ this.name+ ev;
-        }
+
+    beforeCreate() {
+        console.log('before create');
+        console.log(this.color);
+        console.log(document.getElementById('color'));
     },
+
+    created() {
+        console.log('created');
+        console.log(this.color);
+        console.log(document.getElementById('color'));
+    },
+
+    beforeMount() {
+        console.log('before mount');
+        console.log(this.color);
+        console.log(document.getElementById('color'));
+    },
+
+    mounted() {
+        console.log('mounted');
+        console.log(this.color);
+        console.log(document.getElementById('color'));
+    },
+
+    beforeUpdate() {
+        console.log('before update');
+    },
+
+    updated() {
+        console.log('updated');
+    },
+
+    beforeUnMount() {
+        console.log('before unmounted');
+    },
+
+    unMounted() {
+        console.log('unmounted');
+
+    },
+
 
     methods: {
-        checkLoggedIn() {
-            console.log('true');
-            this.isLoggedIN = !this.isLoggedIN;
-        },
+        addItem() {
+            if (this.color) {
+                this.colors.push(this.color);
+                this.color = '';
+            } else {
+                console.log('empty');
+            }
 
-        dummy() {
-            console.log('dummy');
         },
-
-        checkActive() {
-            this.isActive = !this.isActive;
-        },
-        onBoxClick() {
-            this.background = 'black';
+        deleteItem(index) {
+            this.colors.pop(index);
         }
-    },
+    }
 
 }).mount('#app')
